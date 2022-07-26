@@ -18,4 +18,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
     List<Cliente> buscarTodosClientesOrdenadosPeloNomeDecrescente();
     @Query("select p from Pedido p where p.cliente.id = :idCliente")
     List<Pedido> buscarTodosPedidosDeUmCliente(@Param("idCliente") Integer idCliente);
+    @Query("select c from Cliente c where c.cpf like %:cpf%")
+    Cliente buscarClientePeloCpf(@Param("cpf") String cpf);
 }

@@ -35,6 +35,7 @@ CREATE TABLE tbl_itens_pedido(
 );
 SELECT * FROM tbl_clientes;
 SELECT * FROM tbl_pedidos;
+SELECT * FROM tbl_produtos;
 
 INSERT INTO tbl_pedidos(pedido_data_cadastro, pedido_previsao_entrega, pedido_valor_total, cliente_cliente_id, cliente_id)
 VALUES(date(now()), now(), 3200.98, 2, 2);

@@ -184,4 +184,35 @@ public class ClienteService {
             return new Retorno<>(e.getMessage(), new ArrayList<>());
         }
     }
+    public ResponseEntity buscarClientePeloCpf(String cpf) {
+        try {
+            if (cpf == null || cpf.isEmpty()) {
+                throw new Exception("Informe o cpf do cliente!");
+            }
+            Cliente cliente = this.clienteRepository.buscarClientePeloCpf(cpf);
+            if (cliente == null) {
+                return new ResponseEntity("Não existe um cliente cadastrado com esse cpf!", HttpStatus.OK);
+
+            }
+            ClienteDTO clienteDTO = new ClienteDTO();
+            clienteDTO.setId(cliente.getId());
+            clienteDTO.setNome(cliente.getNome());
+            clienteDTO.setCpf(cliente.getCpf());
+            clienteDTO.setRg(cliente.getRg());
+            clienteDTO.setTelefone(cliente.getTelefone());
+            clienteDTO.setEmail(cliente.getEmail());
+            return new ResponseEntity(
+                    new Retorno<ClienteDTO>(
+                            "Cliente encontrado com sucesso!",
+                            clienteDTO
+                    ),
+                    HttpStatus.OK
+            );
+        } catch (Exception e) {
+            return new ResponseEntity(
+                    e.getMessage(),
+                    HttpStatus.BAD_REQUEST
+            );
+        }
+    }
 }
