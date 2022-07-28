@@ -25,14 +25,6 @@ CREATE TABLE tbl_pedidos(
     cliente_id INT NOT NULL,
     CONSTRAINT FOREIGN KEY(cliente_id) REFERENCES tbl_clientes(cliente_id)
 );
-CREATE TABLE tbl_itens_pedido(
-	item_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    item_valor_produto_no_momento DOUBLE NOT NULL,
-    pedido_id INT NOT NULL,
-    produto_id INT NOT NULL,
-    CONSTRAINT FOREIGN KEY(produto_id) REFERENCES tbl_produtos(produto_id),
-    CONSTRAINT FOREIGN KEY(pedido_id) REFERENCES tbl_pedidos(pedido_id)
-);
 SELECT * FROM tbl_clientes;
 SELECT * FROM tbl_pedidos;
 SELECT * FROM tbl_produtos;

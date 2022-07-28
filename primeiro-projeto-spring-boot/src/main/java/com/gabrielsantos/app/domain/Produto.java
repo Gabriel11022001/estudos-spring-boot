@@ -1,6 +1,7 @@
 package com.gabrielsantos.app.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_produtos")

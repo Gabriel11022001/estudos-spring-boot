@@ -3,6 +3,7 @@ package com.gabrielsantos.app.domain;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_pedidos")
