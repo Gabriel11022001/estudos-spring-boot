@@ -6,7 +6,9 @@ import com.gabrielsantos.app.repository.ClienteDAO;
 import com.gabrielsantos.app.service.ClienteService;
 import com.gabrielsantos.app.service.PedidoService;
 import com.gabrielsantos.app.utils.Retorno;
+import com.gabrielsantos.app.utils.TesteException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -150,6 +152,11 @@ public class MinhaPrimeiraController {
         pedido.setDataCadastrado(LocalDateTime.now());
         pedido.setDataPrevisaoEntrega(LocalDate.of(2022, 9, 11));
         pedido.setCliente(clienteDoPedido);
-        return this.pedidoService.cadastrarPedido(pedido);
+        // return this.pedidoService.cadastrarPedido(pedido);
+        return null;
+    }
+    @GetMapping(value = "/testar-exception")
+    public ResponseEntity testarException() {
+        throw new TesteException("Teste da exceção!");
     }
 }

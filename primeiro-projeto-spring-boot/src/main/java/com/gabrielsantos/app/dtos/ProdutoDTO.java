@@ -1,11 +1,19 @@
 package com.gabrielsantos.app.dtos;
 
+import org.hibernate.validator.constraints.Range;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class ProdutoDTO {
 
     private Integer id;
     private String nome;
     private String descricao;
+    @Min(value = 0, message = "A quantidade de unidades do produto em estoque deve ser maior ou igual a zero!")
     private Integer quantidadeUnidadesEstoque;
+    @NotNull(message = "O campo preço do produto é obrigatório!")
+    @Range(min = 0, message = "O preço do produto deve ser maior ou igual a R$0,00!")
     private Double preco;
 
     public ProdutoDTO() {}

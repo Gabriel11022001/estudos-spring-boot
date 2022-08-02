@@ -15,9 +15,9 @@ public class PedidoController {
     @Autowired
     private PedidoService pedidoService;
 
-    @GetMapping(value = "/confirmar-pedido")
+    @GetMapping(value = "/efetivar-pedido")
     public ResponseEntity confirmarPedido(HttpSession sessao) {
-        return null;
+        return this.pedidoService.efetivarPedido(sessao);
     }
     @GetMapping(value = "/cancelar-pedido")
     public ResponseEntity cancelarPedido(HttpSession sessao) {
@@ -29,6 +29,6 @@ public class PedidoController {
     }
     @GetMapping(value = "/{id}")
     public ResponseEntity buscarPedidoPeloId(@PathVariable("id") Integer id) {
-        return null;
+        return this.pedidoService.buscarPedidoPeloId(id);
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/api/produtos")
 public class ProdutoController {
@@ -15,7 +17,7 @@ public class ProdutoController {
     private ProdutoService produtoService;
 
     @PostMapping
-    public ResponseEntity cadastrarProduto(@RequestBody ProdutoDTO produtoDTO) {
+    public ResponseEntity cadastrarProduto(@RequestBody @Valid ProdutoDTO produtoDTO) {
         return this.produtoService.cadastrarProduto(produtoDTO);
     }
     @GetMapping

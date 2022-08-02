@@ -1,6 +1,12 @@
 package com.gabrielsantos.app.domain;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.br.CPF;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,14 +19,19 @@ public class Cliente {
     @Column(name = "cliente_id")
     private Integer id;
     @Column(name = "cliente_nome", nullable = false)
+    @Length(min = 3, message = "Nome inválido, o nome deve possuir no mínimo 3 caracteres!")
+    @NotEmpty(message = "O campo nome é obrigatório!")
     private String nome;
     @Column(name = "cliente_telefone", nullable = false)
+    @NotEmpty(message = "O campo telefone é obrigatório!")
     private String telefone;
     @Column(name = "cliente_email", nullable = false)
+    @Email(message = "E-mail inválido, informe um e-mail no formato válido, exemplo: usuario@gmail.com")
     private String email;
     @Column(name = "cliente_rg", nullable = false)
     private String rg;
     @Column(name = "cliente_cpf", nullable = false)
+    @CPF(message = "Cpf inválido, informe um cpf no formato válido!")
     private String cpf;
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos;

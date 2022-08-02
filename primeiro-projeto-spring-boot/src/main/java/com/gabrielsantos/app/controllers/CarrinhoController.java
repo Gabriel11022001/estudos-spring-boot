@@ -29,4 +29,8 @@ public class CarrinhoController {
     public ResponseEntity decrementarUnidadeDoProdutoNoCarrinho(@PathVariable("idProduto") int idProduto, HttpSession sessao) {
         return this.carrinhoService.decrementarUnidadeDeProdutoNoCarrinho(idProduto, sessao);
     }
+    @GetMapping(value = "/limpar-carrinho-compras")
+    public ResponseEntity limparCarrinhoCompras(HttpSession sessao) {
+        return this.carrinhoService.limparCarrinhoCompras(sessao);
+    }
 }

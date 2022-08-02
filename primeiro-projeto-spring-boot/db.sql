@@ -28,6 +28,15 @@ CREATE TABLE tbl_pedidos(
 SELECT * FROM tbl_clientes;
 SELECT * FROM tbl_pedidos;
 SELECT * FROM tbl_produtos;
+select * from tbl_itens;
 
 INSERT INTO tbl_pedidos(pedido_data_cadastro, pedido_previsao_entrega, pedido_valor_total, cliente_cliente_id, cliente_id)
 VALUES(date(now()), now(), 3200.98, 2, 2);
+
+delete from tbl_pedidos where pedido_id = 1;
+delete from tbl_pedidos where pedido_id = 2;
+delete from tbl_pedidos where pedido_id = 3;
+delete from tbl_pedidos where pedido_id = 4;
+delete from tbl_pedidos where pedido_id = 5;
+delete from tbl_pedidos where pedido_id = 6;
+delete from tbl_pedidos where pedido_id = 7;

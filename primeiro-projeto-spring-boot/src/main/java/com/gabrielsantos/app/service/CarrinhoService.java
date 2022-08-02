@@ -118,4 +118,12 @@ public class CarrinhoService {
             return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+    public ResponseEntity limparCarrinhoCompras(HttpSession sessao) {
+        try {
+            sessao.invalidate();
+            return new ResponseEntity("Carrinho limpo!", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
 }
